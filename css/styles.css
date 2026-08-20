@@ -31,6 +31,10 @@
 
 html { scroll-behavior: smooth; }
 
+/* Compenseert voor de vaste navigatiebalk (~62px) zodat een sectie niet half
+   achter de nav verdwijnt wanneer je er via een menu-link naartoe springt. */
+section[id] { scroll-margin-top: 80px; }
+
 body {
   margin: 0;
   background: var(--color-paper);
@@ -333,8 +337,8 @@ section { padding: var(--gap-xl) 0; }
   white-space: nowrap;
 }
 @media (max-width: 640px) {
-  .timeline-row { grid-template-columns: 1fr auto; row-gap: 0.4rem; }
-  .timeline-kind { grid-column: 1 / -1; justify-self: start; }
+  .timeline-row { grid-template-columns: 1fr; row-gap: 0.4rem; }
+  .timeline-kind, .timeline-period { justify-self: start; }
 }
 
 
