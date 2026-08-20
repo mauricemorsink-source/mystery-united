@@ -1,0 +1,11 @@
+.vercel
+.DS_Store
+Thumbs.db
+
+# Ruwe brondata voor foto-selectie — niet nodig voor de live site (~400MB),
+# alleen de genummerde foto-NN.* kopieën in assets/photos/ worden echt geladen.
+# "Stories IG" blijft WEL staan: die map wordt rechtstreeks door de archiefcarrousel gebruikt.
+assets/photos/WVJL/
+assets/photos/ZFR/
+assets/photos/Voorbereiding wVJL/
+assets/photos/Over mij/
