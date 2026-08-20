@@ -686,21 +686,13 @@ section { padding: var(--gap-xl) 0; }
 .contact {
   position: relative;
   color: #fff;
-  min-height: 70vh;
+  min-height: 55vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
-}
-.contact .photo {
-  position: absolute; inset: 0;
-  border-radius: 0;
-  --ph-ratio: auto;
-  height: 100%;
-}
-.contact::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(26,26,26,0.1) 0%, rgba(15,15,15,0.92) 90%);
+  background:
+    radial-gradient(ellipse 60% 50% at 88% 25%, rgba(255,107,26,0.16), transparent 60%),
+    linear-gradient(160deg, #1e1e1e 0%, #262626 55%, #161616 100%);
 }
 .contact-content {
   position: relative;

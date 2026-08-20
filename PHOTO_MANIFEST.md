@@ -120,7 +120,7 @@ die nummers zijn niet meer in gebruik.)*
 | Nr | Sectie | Omschrijving |
 |---|---|---|
 | 51 ✅ | Waarom Mystery United | Maurice met vrienden en de kampioensschaal (was foto-04 bij Over mij). |
-| 52 ✅ (`foto-52.webp`) | Contact | Ingevuld — zelfde feestterrein-foto als eerder bij Over mij (nu daar niet meer gebruikt). |
+| 52 | Contact | Niet meer in gebruik — sectie heeft nu een plain (fotoloze) achtergrond, zelfde stijl als de hero. `foto-52.webp` staat nog gewoon op schijf. |
 
 ---
 
