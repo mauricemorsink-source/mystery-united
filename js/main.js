@@ -7,6 +7,29 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  // Hamburgermenu (mobiel)
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinksEl = document.getElementById("nav-links");
+  if (nav && navToggle && navLinksEl) {
+    const closeMenu = () => {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    };
+    const openMenu = () => {
+      nav.classList.add("is-open");
+      navToggle.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    };
+    navToggle.addEventListener("click", () => {
+      nav.classList.contains("is-open") ? closeMenu() : openMenu();
+    });
+    navLinksEl.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
   // Scroll-reveal
   const revealEls = document.querySelectorAll("[data-reveal]");
   if (revealEls.length && "IntersectionObserver" in window) {

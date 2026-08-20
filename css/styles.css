@@ -145,6 +145,7 @@ section { padding: var(--gap-xl) 0; }
 }
 .nav-links {
   display: flex;
+  align-items: center;
   gap: var(--gap-md);
   list-style: none;
   margin: 0; padding: 0;
@@ -157,7 +158,69 @@ section { padding: var(--gap-xl) 0; }
   opacity: 0.85;
 }
 .nav-links a:hover { opacity: 1; }
-.nav-toggle { display: none; }
+.nav-links .nav-cta {
+  font-family: var(--font-head);
+  font-weight: 600;
+  opacity: 1;
+  background: var(--color-orange);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.nav-links .nav-cta:hover { background: var(--color-orange-dark); transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+}
+.nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); width: 100%; }
+.nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 100%; }
+
+@media (max-width: 720px) {
+  .nav-links:not(.nav-links-simple) {
+    display: none;
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-md);
+    background: rgba(18,18,18,0.98);
+    backdrop-filter: blur(8px);
+  }
+  .nav.is-open .nav-links:not(.nav-links-simple) { display: flex; }
+  .nav-links:not(.nav-links-simple) a { font-size: 1.15rem; }
+  .nav-toggle { display: flex; }
+
+  /* Simpele case-pagina-nav (2 items) krijgt geen hamburger, maar moet op
+     smalle schermen wel passen naast de logo-naam. */
+  .nav-links-simple { gap: 0.5rem; }
+  .nav-links-simple a { font-size: 0.82rem; }
+  .nav-links-simple .nav-cta { padding: 0.45rem 0.8rem; white-space: nowrap; }
+}
+
+@media (max-width: 360px) {
+  .nav:has(.nav-links-simple) { flex-wrap: wrap; row-gap: 0.6rem; }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -863,8 +926,7 @@ footer.site-footer .case-back { margin-bottom: var(--gap-md); }
 .case-stats-row .case-stat strong { color: var(--color-orange); font-size: 2rem; }
 .case-stats-row .case-stat span { color: var(--color-muted); }
 
-/* ---------- Responsive: nav ---------- */
+/* ---------- Responsive: sections ---------- */
 @media (max-width: 720px) {
   section { padding: var(--gap-lg) 0; }
-  .nav-links { display: none; }
 }
