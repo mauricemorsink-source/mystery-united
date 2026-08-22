@@ -34,7 +34,6 @@
   }
 
   function popupHtml(s) {
-    const photoNum = (s.foto.match(/foto-(\d+)/) || [, "??"])[1];
     const bezoekLabel = s.bezoeken > 1
       ? `${s.bezoeken}× · sinds ${s.eersteBezoek}${s.laatsteBezoek ? " – " + s.laatsteBezoek : ""}`
       : `${s.eersteBezoek}`;
@@ -63,9 +62,6 @@
     return `
       <div class="map-popup">
         ${s.thuisbasis ? '<span class="home-badge">Thuisbasis</span>' : ""}
-        <div class="photo" data-num="${photoNum}">
-          <img src="${s.foto}" alt="${s.club} · ${s.stad}" onerror="this.parentElement.classList.add('missing')">
-        </div>
         <h4>${s.club}</h4>
         <dl class="map-popup-info">${rowsHtml}</dl>
         ${matchListHtml}
