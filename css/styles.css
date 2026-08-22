@@ -827,6 +827,22 @@ footer.site-footer .case-back { margin-bottom: var(--gap-md); }
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .footer-social a:hover { border-color: var(--color-orange); color: var(--color-orange); }
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: var(--gap-md);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-contact a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-contact a:hover { color: var(--color-orange); }
 .footer-bottom {
   text-align: center;
   font-size: 0.8rem;
