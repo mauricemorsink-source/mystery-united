@@ -115,8 +115,8 @@ const STADIUMS = [
     club: "Málaga CF",
     stad: "Málaga",
     land: "Spanje",
-    lat: 36.7314,
-    lng: -4.4236,
+    lat: 36.7349,
+    lng: -4.4265,
     bezoeken: 1,
     eersteBezoek: 2025,
     wedstrijden: [
