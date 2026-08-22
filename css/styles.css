@@ -819,7 +819,8 @@ section { padding: var(--gap-xl) 0; }
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: var(--gap-xl) 0;
+  padding-top: var(--gap-xl);
+  padding-bottom: var(--gap-xl);
   text-align: center;
 }
 .contact-content .lede { color: rgba(255,255,255,0.78); margin: 0 auto var(--gap-md); text-align: center; }
