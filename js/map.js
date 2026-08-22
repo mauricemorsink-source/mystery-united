@@ -12,6 +12,8 @@
     maxZoom: 19
   }).setView([49.5, 8], 4);
 
+  const initialView = { center: map.getCenter(), zoom: map.getZoom() };
+
   L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap-bijdragers &copy; CARTO",
     maxZoom: 19
@@ -126,6 +128,13 @@
           }
         });
       });
+
+      if (land === "all") {
+        map.flyTo(initialView.center, initialView.zoom);
+      } else {
+        const bounds = L.latLngBounds(markersByCountry[land].map((m) => m.getLatLng()));
+        map.flyToBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+      }
     });
   }
 })();
