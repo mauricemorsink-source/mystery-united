@@ -128,12 +128,26 @@ section { padding: var(--gap-xl) 0; }
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem var(--gap-md);
-  background: rgba(26,26,26,0.0);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
-.nav.is-scrolled {
+/* Achtergrond/blur op een pseudo-element i.p.v. direct op .nav: backdrop-filter
+   op .nav zelf zou een nieuw containing block vormen voor de fixed-positioned
+   mobiele menu-overlay (#nav-links), waardoor die niet meer het hele scherm vult
+   zodra er gescrold is. */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: rgba(26,26,26,0.0);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.nav.is-scrolled::before {
   background: rgba(26,26,26,0.92);
   backdrop-filter: blur(6px);
+}
+.nav.is-scrolled {
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 .nav-logo {
