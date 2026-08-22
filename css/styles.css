@@ -377,30 +377,46 @@ section { padding: var(--gap-xl) 0; }
   border-top: 1px solid var(--color-line);
 }
 .timeline-row {
-  position: relative;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid #d7d3cb;
 }
 .timeline-row:last-child { border-bottom: none; }
 .timeline-summary {
+  position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--gap-sm);
-  padding: 1.5rem 2.1rem 1.5rem 0;
+  padding: 1.5rem 2.75rem 1.5rem 0;
   cursor: pointer;
   list-style: none;
+  transition: background 0.2s ease;
 }
+.timeline-summary:hover { background: rgba(26,26,26,0.02); }
 .timeline-summary::-webkit-details-marker { display: none; }
 .timeline-summary::marker { content: ""; }
 .timeline-chevron {
   position: absolute;
-  top: 1.75rem;
+  top: 50%;
   right: 0;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
   color: var(--color-muted);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
   pointer-events: none;
 }
-.timeline-row[open] .timeline-chevron { transform: rotate(180deg); }
+.timeline-summary:hover .timeline-chevron { border-color: var(--color-orange); color: var(--color-orange); }
+.timeline-row[open] .timeline-chevron {
+  transform: translateY(-50%) rotate(180deg);
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: #fff;
+}
 .timeline-row[open] .timeline-summary { padding-bottom: 0.75rem; }
 .timeline-kind {
   font-family: var(--font-head);
@@ -443,7 +459,7 @@ section { padding: var(--gap-xl) 0; }
 }
 .timeline-desc li { margin-bottom: 0.2rem; }
 @media (max-width: 640px) {
-  .timeline-summary { grid-template-columns: 1fr; row-gap: 0.4rem; padding-right: 1.8rem; }
+  .timeline-summary { grid-template-columns: 1fr; row-gap: 0.4rem; padding-right: 2.5rem; }
   .timeline-kind, .timeline-period { justify-self: start; }
 }
 
